@@ -1,0 +1,73 @@
+
+path.link {
+fill: none;
+stroke: #666;
+stroke-width: 1.5px;
+}
+
+path.link1 {
+fill: none;
+stroke: rgb(48, 45, 45);
+stroke-width: 5px;
+}
+
+path.link2 {
+fill: none;
+stroke: rgb(13, 165, 51);
+stroke-width: 1.5px;
+stroke-dasharray: 10,10;
+}
+
+circle {
+fill: #ccc;
+stroke: none;
+/* stroke: black; */
+stroke-width: 1.5px;
+}
+
+text {
+fill: #000;
+font: 10px sans-serif;
+pointer-events: none;
+}
+
+.spaced {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.spaced-double {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    height: fit-content;
+}
+
+.jumbotron {
+    padding: 1rem 1rem 1rem 1rem
+}
+
+.rounded-corner {
+    border-radius: 6px ;
+}
+
+.padded {
+    padding: 2rem 2rem 2rem 2rem;
+}
+
+.circle-text{
+    font-weight: bolder;
+    font-size: 12px;
+    /* -webkit-text-stroke: 1px #000; */
+    /* text-shadow: 1px 0 0 #000 , 0 -1px  0 #000 , 0 1px  0 #000 , -1px 0 0 #000; */
+    fill: #f7f7f7;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.cust-sub-heading {
+    font-style: italic;
+}
+

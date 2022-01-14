@@ -1,0 +1,38 @@
+{
+    "GDP at market prices (current US$)" : {        
+        "col": "GDP @ Market Price"
+
+    },
+    "GDP per capita (current US$)": {
+        "col": "GDP per Capita"
+    },
+    "Gross fixed capital formation (annual % growth)":{
+        "col": "Gross Capital Formation",
+        "format": "p"
+    },
+    "Household final consumption expenditure, etc. (% of GDP)":{
+        "col": "Consumption (% of GDP)",
+        "format": "p"
+    },
+    "Household final consumption expenditure, etc. (current US$)":{
+        "col": "Consumption Expense"
+    },
+    "Inflation, consumer prices (annual %)":{
+        "col": "Inflation (annual %)",
+        "format": "p"
+    },
+    "Inflation, GDP deflator (annual %)":{
+        "col": "GDP Deflator (annual %)",
+        "format": "p"
+
+    },
+    "Population, total":{
+        "col" : "Total Population",
+        "format": "c"
+
+    },
+    "Real interest rate (%)":{
+        "col": "Interest Rate (%)",
+        "format": "p"
+    }
+}

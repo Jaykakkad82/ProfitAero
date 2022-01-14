@@ -1,0 +1,296 @@
+
+---
+title: "Association Rules Mining"
+author: "Jaykumar Kakkad"
+date: "06/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(lubridate) # dates/times
+library(arules) # mining association 
+library(arulesViz) # visualizing rules
+library(tidyverse) # data
+library(knitr) # report generation
+library(gridExtra)
+
+```
+
+```{r}
+rm(list=ls())
+```
+
+
+```{r}
+library(readr)
+data <- read_csv("C:/Users/jayka/Desktop/OMSA/DVA6242/Project/code/TransactDataClean_3110.csv", 
+    col_types = cols(StockCode = col_number(), 
+        InvoiceDate = col_datetime(format = "%Y-%m-%d %H:%M:%S")))
+
+```
+
+```{r}
+
+cdata=data[rowSums(is.na(data[,c("Invoice","StockCode")]))==0,]  # around 100 rows have NA in StockCode and hence those rows removed
+#cdata.head()
+```
+
+```{r}
+#detach(package:plyr)
+# transaction per month
+cdata$Month = month(cdata$InvoiceDate)
+cdata$Invoice = as.numeric(cdata$Invoice)
+```
+
+```{r}
+
+# preparing data
+ddata = cdata[!duplicated(cdata[c("Invoice","StockCode")]),]  #dropping duplicates of stocks from each invoice
+ddata$Invoice = as.factor(ddata$Invoice)
+ddata$StockCode = as.factor(ddata$StockCode)
+
+#creating a dataframe
+
+ ydata <-  ddata %>% group_by(Invoice) %>%
+  summarize(StockCode = paste(sort(unique(StockCode)),collapse=", "))
+ 
+```
+
+```{r}
+ydata$Invoice <- NULL
+colnames(ydata) = c("Basket")
+
+```
+
+```{r}
+# THis is the easiest way to convert to basket format
+write.csv(ydata,"Product_Basket.csv", quote = FALSE, row.names = FALSE)
+```
+
+```{r}
+#Reading in basket format
+trans_format= read.transactions('Product_Basket.csv', format = 'basket', sep=',')
+```
+
+
+```{r}
+association_rules <- apriori(trans_format, parameter = list(supp=0.005, conf=0.8,maxlen=10))
+```
+
+```{r}
+inspect(association_rules)
+
+```
+
+
+```{r}
+#The Experiment to find the optimal rules using confidence and SUpport
+# Support and confidence values
+support <- c(0.01, 0.005)
+confid <- c(0.9, 0.8, 0.7, 0.6, 0.5)
+
+# Empty integers 
+rules1 <- integer(length=5)
+rules2 <- integer(length=5)
+
+clength = length(confid)
+slength = length(support)
+
+
+# Length of Rules for various iteration
+
+j=1
+for (i in 1:clength) {
+  
+  rules1[i] <- length(apriori(trans_format, parameter=list(sup=support[j], 
+                                   conf=confid[i], target="rules")))
+  
+  
+}
+plot1=qplot(confid, rules1, geom=c("point", "line"),xlab="Confidence level", ylab="Number of rules found")
+
+j=2
+for (i in 1:clength) {
+  
+  rules2[i] <- length(apriori(trans_format, parameter=list(sup=support[j], 
+                                   conf=confid[i], target="rules")))
+  
+  
+}
+plot2=qplot(confid, rules2, geom=c("point", "line"),xlab="Confidence level", ylab="Number of rules found")
+
+grid.arrange(plot1, plot2, ncol=2)
+
+```
+
+
+
+```{r}
+rules <- apriori(trans_format, parameter=list(sup=support[1], 
+                             conf=confid[2], target="rules"))
+inspect(rules)
+```
+```{r}
+plot(rules, measure=c("support", "lift"), shading="confidence")
+```
+```{r}
+plot(rules, method="graph",control=list(layout=igraph::in_circle()))
+```
+```{r}
+plot(rules, method="grouped")
+```
+```{r}
+plot(rules, method="graph", engine='htmlwidget')
+```
+```{r}
+# some more ideas
+
+
+
+```
+
+
+```{r}
+plot(rules, engine = "htmlwidget")
+```
+
+
+```{r}
+plot(rules, method = "matrix", engine = "htmlwidget")
+```
+
+
+```{r}
+plot(rules, method = "grouped matrix", engine = "interactive")
+```
+```{r}
+p <- plot(rules, method = "graph", engine = "htmlwidget")
+htmlwidgets::saveWidget(p, "arules_graph.html", selfcontained = FALSE)
+browseURL("arules.html")
+```
+
+
+```{r}
+saveAsGraph(rules, file = "rules.graphml")
+```
+
+```{r}
+# save a plot as a html page
+p <- plot(rules, engine= 'plotly')
+htmlwidgets::saveWidget(p, "arules.html", selfcontained = FALSE)
+```
+
+
+```{r}
+#browseURL("arules.html")
+
+# interactive matrix visualization
+#plot(rules, method = "matrix",engine= 'plotly')
+```
+
+
+```{r}
+# Calculating additional sales
+
+myrules = inspect(rules)
+myrules
+```
+
+```{r}
+
+```
+
+```{r}
+ unitprice_data <-  ddata %>% group_by(StockCode) %>%
+  summarize(price = mean(Price), qty = mean(Quantity))
+
+
+unitprice_data
+
+```
+```{r}
+(unitprice_data[unitprice_data["StockCode"]==4,'price'])*2+(unitprice_data[unitprice_data["StockCode"]==37,'price'])*2 
+
+```
+
+```{r}
+gains = 0
+for (trans in ydata$Basket){
+
+trans=unlist(strsplit(trans,","))
+  trans=as.numeric(trans)
+  
+  for (i in range(52)) {
+    
+    irule = myrules[i,]
+    
+    
+    x=irule[,'lhs']
+    x=gsub('{','',x,fixed=TRUE)
+    x=gsub('}','',x,fixed=TRUE)
+    x=unlist(strsplit(x,","))
+    x=as.numeric(x)
+    
+    a= x %in% trans
+    
+    
+    if (sum(a)==length(a)){
+    y=irule[,"rhs"]
+    y=gsub('{','',y,fixed=TRUE)
+    y=gsub('}','',y,fixed=TRUE)
+    y=unlist(strsplit(y,","))
+    y=as.numeric(y)
+    gains = gains + unitprice_data[unitprice_data["StockCode"]==y,'price']*unitprice_data[unitprice_data["StockCode"]==y,'qty']
+    #print(gains)
+    }
+    
+  }
+  
+} 
+
+
+#print(gains)
+```
+
+```{r}
+for (trans in ydata[1:2,])
+  {
+
+trans=unlist(strsplit(trans,","))
+trans=as.numeric(trans)
+print(trans)
+  
+}
+```
+
+
+
+```{r}
+myrules$lhs
+```
+```{r}
+ #for (irule in myrules)
+ #{ print(irule["rhs"])}
+
+irule = myrules[1,]
+irule[,'lhs']
+
+```
+```{r}
+cdata
+```
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="stylesheet" href="css/common-styles.css">
+<script type="text/javascript" src="../lib/d3.v5.min.js"></script>
+
+
+<head>
+<title></title></head>
+<body>
+
+<script>
+
+Promise.all([
+    d3.csv("./data/edges_full.csv"),
+    d3.csv("./data/cust_full.csv"),
+    d3.csv("./data/Monthly_dummy_data.csv")
+]).then(function([edges, cust, monthly_data]) {
+    geos = get_geos(cust)
+    console.log(geos)
+    console.log(monthly_data)
+    var selectBox = document.getElementById("geo")
+    geos.forEach(element => {       
+        var newOption = document.createElement('option');
+        var optionText = document.createTextNode(element);
+        newOption.appendChild(optionText);
+        newOption.setAttribute('value',element);
+        if(element==="United Kingdom"){
+            newOption.setAttribute('selected',true);
+        }
+        selectBox.appendChild(newOption);        
+    });
+    window.allcusts = cust;
+    window.alledges = edges;
+    window.geos = geos;
+    window.monthly_data= monthly_data;
+    filterAndRender();
+    //create_cust_bar(12346,monthly_data)
+}).catch(function(error) {
+  console.log(error);
+});
+
+var toggleViz = function(e){
+    var node = document.getElementById("tv-less")
+    if(node.style.visibility=="hidden"){
+        document.getElementById("tv-less").style.visibility = "visible";
+    }
+    else{
+        document.getElementById("tv-less").style.visibility = "hidden";
+    }
+}
+
+var toggleVizSim = function(e){
+    var node = document.getElementById("sim-less")
+    if(node.style.visibility=="hidden"){
+        document.getElementById("sim-less").style.visibility = "visible";
+    }
+    else{
+        document.getElementById("sim-less").style.visibility = "hidden";
+    }
+}
+
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3">
+    <div class="container-fluid">
+        <a class="navbar-brand profit-aero-header" href="/index.html">ProfitAero</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-1">
+                <li class="nav-item">
+                    <a class="nav-item nav-link active profit-aero-link me-3" href="/index.html">Overview</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link profit-aero-link me-3 active" href="/customer.html">Customer Analytics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link profit-aero-link me-3" href="/product.html">Product Analytics</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="load"> </div>
+
+<div class="jumbotron bg-light">
+    <form class="row g-6 bg-light ">
+        <div class="col-md-3">
+            <label for="geo" class="form-label">Geography</label>
+            <select id="geo" class="form-select">
+                <option value="All">All</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="churn" class="form-label">Churn Class</label>
+            <select id="churn" class="form-select">
+                <option value="All" selected>All</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High" selected>High</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label t-for="lv" class="form-label">Lifetime Value</label>
+            <div class="form-check m-2">
+                <label class="form-check-label" for="tv-check">
+                    Select To Value
+                </label>
+                <input onclick="toggleViz()"  class="form-check-input" type="checkbox" id="tv-check" name="colorCheckbox" value="tv-less" checked="true">
+                
+            </div>
+            <div class="row mt-3 mb-3 me-3">
+                <label class="visually-hidden" for="churn-from">Churn From</label>
+                <div class="input-group">
+                    <div class="col-sm-4  input-group-text">Greater Than</div>
+                    <input  type="text" class="form-control" id="churn-from" placeholder="Value in USD $">
+                </div>
+
+               
+            </div>
+            <div class="row mt-3 mb-3 me-3" id="tv-less" >
+                <label class="visually-hidden" for="autoSizingInputGroup2">Churn To</label>
+                <div class="input-group">
+                    <div class="col-sm-4  input-group-text">Lesser Than</div>
+                    <input type="text" class="form-control" id="churn-to" placeholder="Value in USD $">
+                </div>
+           
+            </div>
+           
+        </div>
+        <div class="col-md-3">
+            <label t-for="custsim" class="form-label">Customer Similarity</label>
+            <div class="form-check m-2">
+                <label class="form-check-label" for="tv-check">
+                    Select To Value
+                </label>
+                <input onclick="toggleVizSim()" class="form-check-input" type="checkbox" id="sim-check" name="colorCheckbox"
+                    value="sim-less" checked="true">
+        
+            </div>
+            <div class="row mt-3 mb-3 me-3" >
+                <label class="visually-hidden" for="sim-from">Cust From</label>
+                <div class="input-group">
+                    <div class="col-sm-4  input-group-text">Greater Than</div>
+                    <input type="text" class="form-control" id="sim-from" placeholder="Value in USD $">
+                </div>
+        
+        
+            </div>
+            <div class="row mt-3 mb-3 me-3" id="sim-less">
+                <label class="visually-hidden" for="sim-to">Cust To</label>
+                <div class="input-group">
+                    <div class="col-sm-4  input-group-text">Lesser Than</div>
+                    <input type="text" class="form-control" id="sim-to" placeholder="Value in USD $">
+                </div>
+        
+            </div>
+        
+        </div>
+        <div class="col-12 m-2 p-4">
+            <button type="button" onclick="filterAndRender()" class="btn btn-outline-secondary">Filter</button>
+        </div>
+        
+    </form>
+    <!-- <div class="row">
+        <div class="col spaced">
+        <div class="row spaced"><span>Location</span></div>
+        <div class="row spaced"> 
+        <div class="input-group">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="geo">Geography</label>
+            </div>
+            <select class="custom-select" id="geo">
+                <option value="All">All</option>
+            </select>
+        </div>
+        </div>
+        </div>
+        <div class="col spaced">
+        <div class="row spaced"><span>Churn</span></div>
+        <div class="row spaced"> 
+        <div class="input-group">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="churn">Churn Class</label>
+            </div>
+            <select class="custom-select" id="churn">
+                <option value="All" selected>All</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High" selected>High</option>
+            </select>
+        </div>
+        </div>
+        </div>
+        <div class="col spaced">
+            <div class="row spaced"><span>Lifetime Value</span></div>
+            <div class="row spaced">
+                <div class="input-group">
+                    <input onclick="toggleViz()" type="checkbox" id="tv-check" name="colorCheckbox" 
+                        value="tv-less" checked="true">Select To Value</label>
+                </div>
+            </div>
+            <div class="row spaced">   
+            <div class="input-group">             
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Greater than</span>
+                </div>
+                <input type="text" id="churn-from" class="form-control" value="3000">
+                <div class="input-group-append">
+                  <span class="input-group-text">$</span>
+                </div>
+            </div>
+            </div>
+            <div class="row spaced" id="tv-less">   
+                <div class="input-group">             
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Less than</span>
+                    </div>
+                    <input type="text" id="churn-to" class="form-control">
+                    <div class="input-group-append">
+                      <span class="input-group-text">$</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col spaced">
+            <div class="row spaced"><span>Customer Similarity</span></div>
+            <div class="row spaced">
+                <div class="input-group">
+                    <input onclick="toggleVizSim()" type="checkbox" id="sim-check" name="colorCheckbox" 
+                        value="sim-less" checked="true">Select To Value</label>
+                </div>
+            </div>
+            <div class="row spaced">   
+            <div class="input-group">             
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Greater than</span>
+                </div>
+                <input type="text" id="sim-from" class="form-control" value="10">
+                <div class="input-group-append">
+                  <span class="input-group-text">$</span>
+                </div>
+            </div>
+            </div>
+            <div class="row spaced" id="sim-less">   
+                <div class="input-group">             
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Less than</span>
+                    </div>
+                    <input type="text" id="sim-to" class="form-control">
+                    <div class="input-group-append">
+                      <span class="input-group-text">$</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" onclick="filterAndRender()" class="btn btn-primary spaced-double">Filter</button>
+    </div>  -->
+</div>
+
+<div class="container-fluid">
+    <div class="row justify-content-evenly card-columns" id="data-cards">
+
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row justify-content-evenly">
+        <div class="col-7 " id="graph_col">
+            <div class="rounded-corner padded text-center">
+                <h1>Customer Graph Network</h1>
+            </div>
+        </div>
+        <div class="col-5 " id="customer_metrics_col">
+            <div class=" padded text-center " id="customer_metrics">
+                <h1 class="m-2 d-none" id="metricHeader">Customer Metrics</h1>
+                <h5 class="cust-sub-heading d-none" id="metricSubHeader">12 Months Sales for the Customer</h5>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1111111">
+    <div id="liveToast" class="toast text-white bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Click on a Node for Customer Sales Data</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+
+    </div>
+</div>
+
+
+    
+    <script type="text/javascript" src="js/tooltip-init.js"></script>
+    <script type="text/javascript" src="./js/customer_graph.js"></script>
+    <script>
+    var getcards = function()
+    {
+        let rnd = a => Math.random().toString(36).substring(2);
+    
+        var data = [1,2,3,4].map(d => ({
+            value: rnd(),
+            }));
+    
+    
+        var Riskvalue = 0
+        var Custcount = 0
+        var CustRiskid = 0
+        var CustRiskprob = 0
+    
+        var d_node = document.getElementsByClassName('node')
+        Array.from(d_node).forEach(  (d) => {
+            if(d.__data__.churnclass==="High"){
+                Riskvalue = Riskvalue + d.__data__.tv
+                Custcount = Custcount + 1            
+                }
+    
+            if(d.__data__.churnprob >= CustRiskprob){
+                CustRiskprob = d.__data__.churnprob
+                CustRiskid =  d.__data__.id            
+                }
+    
+            })
+    
+        data[0].value = Math.round(Riskvalue)
+        data[1].value = Custcount
+        data[2].value = CustRiskid
+    
+        data[3].value = CustRiskprob
+    
+    
+    
+        data[0].project = 'Sales Benefit($)'
+        data[1].project = 'High Risk Customer Count'
+        data[2].project = 'Highest Risk Customer ID'
+        data[3].project = 'Probability Of Churn'
+    
+    
+        data[0].desc = 'Value generation if all customers at high risk are saved'
+        data[1].desc = 'Total number of customers at a high risk of churn'
+        data[2].desc = 'Customer with highest risk of churn'
+        data[3].desc = 'Likelihood of highest risk customer to churn'
+    
+        console.log("length is :"+data.length)        
+            
+        d3.select('.card-columns')
+            .selectAll('.cards')
+            .data(data)
+            .enter()
+            .append("div") // append div here
+            .attr("class" ,"col m-3 cards-div")
+            .each(function(d) { 
+                    console.log(d)
+                    d3.select(this).html(
+                `<div class="card border-dark">
+                    <div class="card-body text-center p-0" >
+                        <div class="container-fluid " style="background-color:powderblue;">
+                        <h5 class="card-title p-2"  >${d.project}</h5>
+                        </div>
+                        <p class="card-text" >
+                            
+                            <span>${d.value}</span>
+                            <br>
+                            <hr>
+                            <small class="text-muted">${d.desc}</small>
+                        </p>                        
+                    </div>
+                </div>`)
+            });
+        }     
+    
+    
+        var cardsdel = function()
+        {
+            $(".cards-div").remove()
+        }
+    
+    
+      </script>
+    
+    
+<radialGradient id="gradientCircle"
+    gradientUnits="objectBoundingBox" fx="30%" fy="30%">
+
+    <stop offset="0%" id="stop-1" style="stop-color:#FFFFFF" />
+    <stop offset="40%" id="stop-2" style="stop-color:#0000AA" />
+    <stop offset="100%" id="stop-3" style="stop-color:#000066" />
+</radialGradient>
+
+</body>
+</html>

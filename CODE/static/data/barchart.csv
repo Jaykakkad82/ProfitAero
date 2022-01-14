@@ -1,0 +1,563 @@
+Country,Year,Month,Sales
+Australia,2009,December,271.1
+Australia,2010,April,630.95
+Australia,2010,August,176.0
+Australia,2010,December,1650.0
+Australia,2010,February,1029.66
+Australia,2010,July,631.12
+Australia,2010,June,3214.78
+Australia,2010,March,429.39
+Australia,2010,May,1296.35
+Australia,2010,November,18235.52
+Australia,2010,October,2962.8
+Australia,2010,September,785.83
+Australia,2011,April,421.6
+Australia,2011,August,22489.2
+Australia,2011,February,14679.07
+Australia,2011,January,8967.31
+Australia,2011,July,4931.68
+Australia,2011,June,25187.77
+Australia,2011,March,17207.64
+Australia,2011,May,13405.91
+Australia,2011,November,7010.22
+Australia,2011,October,17150.53
+Australia,2011,September,5090.38
+Austria,2009,December,1918.3400000000001
+Austria,2010,April,1388.54
+Austria,2010,August,1043.15
+Austria,2010,December,157.2
+Austria,2010,February,878.86
+Austria,2010,June,268.1
+Austria,2010,March,685.13
+Austria,2010,May,502.03999999999996
+Austria,2010,November,2477.6
+Austria,2010,October,956.7
+Austria,2010,September,1400.17
+Austria,2011,April,505.58000000000004
+Austria,2011,August,1436.08
+Austria,2011,December,523.2
+Austria,2011,February,438.36
+Austria,2011,July,1111.95
+Austria,2011,March,1308.1200000000001
+Austria,2011,May,1016.7299999999999
+Austria,2011,November,1209.78
+Austria,2011,October,923.78
+Bahrain,2010,December,205.74
+Bahrain,2010,February,439.85
+Bahrain,2010,June,463.28
+Bahrain,2010,March,548.8
+Bahrain,2010,May,585.96
+Bahrain,2010,October,317.76
+Bahrain,2011,May,548.4
+Belgium,2009,December,287.6
+Belgium,2010,April,2360.39
+Belgium,2010,August,1536.62
+Belgium,2010,December,1910.01
+Belgium,2010,February,1665.85
+Belgium,2010,January,1439.02
+Belgium,2010,July,1716.23
+Belgium,2010,June,3260.84
+Belgium,2010,March,590.02
+Belgium,2010,May,83.15
+Belgium,2010,November,4652.9800000000005
+Belgium,2010,October,1304.72
+Belgium,2010,September,1070.91
+Belgium,2011,April,1788.48
+Belgium,2011,August,3140.02
+Belgium,2011,December,1288.73
+Belgium,2011,February,1906.27
+Belgium,2011,January,1080.2
+Belgium,2011,July,2205.57
+Belgium,2011,June,3844.5
+Belgium,2011,March,2994.98
+Belgium,2011,May,2486.4
+Belgium,2011,November,5619.76
+Belgium,2011,October,5138.03
+Belgium,2011,September,3762.67
+Bermuda,2010,March,1253.1399999999999
+Brazil,2010,September,255.67000000000002
+Brazil,2011,April,1143.6
+Canada,2010,November,364.07
+Canada,2010,October,834.89
+Canada,2011,August,51.559999999999995
+Canada,2011,July,1217.64
+Canada,2011,June,1171.46
+Canada,2011,March,140.54
+Canada,2011,May,534.24
+Channel Islands,2009,December,989.18
+Channel Islands,2010,April,926.82
+Channel Islands,2010,August,1345.44
+Channel Islands,2010,December,727.06
+Channel Islands,2010,January,838.75
+Channel Islands,2010,June,845.0
+Channel Islands,2010,March,1065.12
+Channel Islands,2010,May,5280.27
+Channel Islands,2010,November,2157.53
+Channel Islands,2010,October,4341.19
+Channel Islands,2010,September,6156.34
+Channel Islands,2011,April,293.0
+Channel Islands,2011,August,4861.38
+Channel Islands,2011,December,198.4
+Channel Islands,2011,February,1784.71
+Channel Islands,2011,January,675.58
+Channel Islands,2011,June,1935.23
+Channel Islands,2011,March,3457.58
+Channel Islands,2011,May,914.24
+Channel Islands,2011,November,1479.37
+Channel Islands,2011,October,2410.92
+Channel Islands,2011,September,1323.75
+Cyprus,2009,December,3503.88
+Cyprus,2010,April,1151.7
+Cyprus,2010,December,1422.17
+Cyprus,2010,February,750.49
+Cyprus,2010,January,41.120000000000005
+Cyprus,2010,June,489.8
+Cyprus,2010,March,2715.99
+Cyprus,2010,May,477.36
+Cyprus,2010,November,397.59999999999997
+Cyprus,2010,October,551.33
+Cyprus,2010,September,861.98
+Cyprus,2011,February,3893.35
+Cyprus,2011,January,547.5
+Cyprus,2011,June,1109.32
+Cyprus,2011,March,938.39
+Cyprus,2011,November,431.39
+Cyprus,2011,October,4324.37
+Cyprus,2011,September,196.35
+Czech Republic,2011,February,549.26
+Czech Republic,2011,October,237.48
+Denmark,2009,December,1365.66
+Denmark,2010,April,748.0
+Denmark,2010,August,2533.53
+Denmark,2010,December,2275.0
+Denmark,2010,February,19809.899999999998
+Denmark,2010,January,7870.6
+Denmark,2010,July,555.6600000000001
+Denmark,2010,June,2623.5099999999998
+Denmark,2010,March,7595.18
+Denmark,2010,November,4037.64
+Denmark,2010,October,322.6
+Denmark,2010,September,1725.25
+Denmark,2011,August,195.15
+Denmark,2011,December,150.9
+Denmark,2011,February,363.22
+Denmark,2011,July,358.24
+Denmark,2011,June,3063.15
+Denmark,2011,March,3978.9900000000002
+Denmark,2011,May,479.7
+Denmark,2011,November,2699.57
+Denmark,2011,October,1274.76
+Denmark,2011,September,4510.16
+EIRE,2009,December,18755.44
+EIRE,2010,April,23257.18
+EIRE,2010,August,25859.41
+EIRE,2010,December,15103.04
+EIRE,2010,February,20211.95
+EIRE,2010,January,58169.23
+EIRE,2010,July,35026.52
+EIRE,2010,June,22671.61
+EIRE,2010,March,21562.39
+EIRE,2010,May,18732.74
+EIRE,2010,November,30853.71
+EIRE,2010,October,42180.07
+EIRE,2010,September,35638.57
+EIRE,2011,April,7498.8
+EIRE,2011,August,18155.15
+EIRE,2011,December,7106.89
+EIRE,2011,February,12032.44
+EIRE,2011,January,21886.49
+EIRE,2011,July,42618.25
+EIRE,2011,June,21031.63
+EIRE,2011,March,18720.42
+EIRE,2011,May,17699.01
+EIRE,2011,November,29581.93
+EIRE,2011,October,24030.22
+EIRE,2011,September,42891.1
+European Community,2011,April,155.4
+European Community,2011,July,616.8
+European Community,2011,June,387.05
+Finland,2009,December,469.08000000000004
+Finland,2010,April,1175.13
+Finland,2010,December,652.8
+Finland,2010,January,718.6800000000001
+Finland,2010,July,836.23
+Finland,2010,June,534.14
+Finland,2010,May,837.11
+Finland,2010,November,294.98
+Finland,2010,October,1086.69
+Finland,2010,September,844.18
+Finland,2011,April,1368.92
+Finland,2011,August,1096.5
+Finland,2011,December,1072.76
+Finland,2011,February,165.16
+Finland,2011,January,769.02
+Finland,2011,July,2348.08
+Finland,2011,June,289.56
+Finland,2011,March,4831.57
+Finland,2011,November,2420.84
+Finland,2011,October,2233.42
+Finland,2011,September,905.45
+France,2009,December,5820.59
+France,2010,April,6706.4800000000005
+France,2010,August,16285.32
+France,2010,December,14235.73
+France,2010,February,8014.06
+France,2010,January,7296.95
+France,2010,July,7486.14
+France,2010,June,8439.539999999999
+France,2010,March,8027.59
+France,2010,May,13306.95
+France,2010,November,17951.92
+France,2010,October,14319.97
+France,2010,September,12275.58
+France,2011,April,3872.76
+France,2011,August,12316.86
+France,2011,December,6538.92
+France,2011,February,7618.96
+France,2011,January,16135.12
+France,2011,July,9171.19
+France,2011,June,14729.91
+France,2011,March,13653.5
+France,2011,May,16210.88
+France,2011,November,29193.16
+France,2011,October,24008.33
+France,2011,September,21898.04
+Germany,2009,December,8978.15
+Germany,2010,April,21631.38
+Germany,2010,August,8923.619999999999
+Germany,2010,December,18243.37
+Germany,2010,February,7902.7
+Germany,2010,January,11094.22
+Germany,2010,July,18066.52
+Germany,2010,June,14200.43
+Germany,2010,March,15252.73
+Germany,2010,May,8041.41
+Germany,2010,November,27599.06
+Germany,2010,October,19367.93
+Germany,2010,September,16119.13
+Germany,2011,April,10994.79
+Germany,2011,August,17636.77
+Germany,2011,December,7006.32
+Germany,2011,February,8825.05
+Germany,2011,January,15241.289999999999
+Germany,2011,July,14726.95
+Germany,2011,June,12056.7
+Germany,2011,March,12846.34
+Germany,2011,May,23518.2
+Germany,2011,November,24149.83
+Germany,2011,October,28403.57
+Germany,2011,September,16280.27
+Greece,2009,December,610.95
+Greece,2010,April,211.58
+Greece,2010,August,721.7099999999999
+Greece,2010,January,4635.15
+Greece,2010,June,139.2
+Greece,2010,March,522.73
+Greece,2010,May,2476.22
+Greece,2010,November,679.7
+Greece,2010,October,3084.02
+Greece,2010,September,780.06
+Greece,2011,April,509.74
+Greece,2011,December,545.99
+Greece,2011,January,2661.24
+Greece,2011,July,321.24
+Greece,2011,March,387.31
+Hong Kong,2010,April,2217.11
+Hong Kong,2010,June,1685.6499999999999
+Hong Kong,2011,April,1539.64
+Hong Kong,2011,August,2653.9500000000003
+Hong Kong,2011,January,2439.76
+Hong Kong,2011,June,618.96
+Hong Kong,2011,May,1966.16
+Hong Kong,2011,October,734.52
+Iceland,2010,December,1423.58
+Iceland,2010,October,611.53
+Iceland,2011,April,636.25
+Iceland,2011,August,584.9100000000001
+Iceland,2011,December,224.82
+Iceland,2011,January,475.39
+Iceland,2011,June,382.52
+Iceland,2011,October,1258.6200000000001
+Israel,2010,July,1950.98
+Israel,2010,November,1248.42
+Israel,2011,April,110.0
+Israel,2011,August,4873.8099999999995
+Israel,2011,February,779.1
+Israel,2011,January,379.84000000000003
+Israel,2011,July,1430.75
+Israel,2011,October,132.13
+Israel,2011,September,423.73
+Italy,2009,December,422.35
+Italy,2010,April,1525.85
+Italy,2010,December,1022.3000000000001
+Italy,2010,June,232.45
+Italy,2010,March,699.22
+Italy,2010,May,1861.85
+Italy,2010,November,2390.66
+Italy,2010,October,4543.72
+Italy,2010,September,1268.56
+Italy,2011,April,737.8299999999999
+Italy,2011,August,1785.85
+Italy,2011,December,147.35000000000002
+Italy,2011,February,228.0
+Italy,2011,January,2066.51
+Italy,2011,July,147.1
+Italy,2011,June,202.07
+Italy,2011,March,1676.81
+Italy,2011,May,587.45
+Italy,2011,November,3857.38
+Italy,2011,October,3277.94
+Italy,2011,September,279.8
+Japan,2010,December,11819.55
+Japan,2010,February,193.72
+Japan,2010,January,2.95
+Japan,2010,July,1253.3
+Japan,2010,June,594.68
+Japan,2010,March,110.4
+Japan,2010,November,23.6
+Japan,2010,October,1533.8899999999999
+Japan,2010,September,1895.0
+Japan,2011,April,6390.099999999999
+Japan,2011,February,5593.3099999999995
+Japan,2011,July,3854.4
+Japan,2011,June,1607.04
+Japan,2011,March,48.9
+Japan,2011,May,1351.45
+Japan,2011,November,8460.08
+Japan,2011,October,1948.0400000000002
+Japan,2011,September,112.07999999999998
+Korea,2010,November,917.12
+Korea,2010,September,150.99
+Lebanon,2010,September,211.7
+Lebanon,2011,January,1693.88
+Lithuania,2010,December,3283.12
+Lithuania,2010,July,1686.73
+Lithuania,2010,November,1525.39
+Malta,2010,August,1868.56
+Malta,2010,February,818.19
+Malta,2011,August,1079.0
+Malta,2011,June,685.46
+Malta,2011,November,288.43
+Netherlands,2009,December,13786.33
+Netherlands,2010,April,6274.9800000000005
+Netherlands,2010,August,23657.69
+Netherlands,2010,December,8932.08
+Netherlands,2010,February,16720.79
+Netherlands,2010,January,27861.87
+Netherlands,2010,July,5385.29
+Netherlands,2010,June,23294.91
+Netherlands,2010,March,23425.3
+Netherlands,2010,May,21190.579999999998
+Netherlands,2010,November,34288.74
+Netherlands,2010,October,16332.85
+Netherlands,2010,September,43776.24
+Netherlands,2011,April,2886.56
+Netherlands,2011,August,40327.81
+Netherlands,2011,December,11728.02
+Netherlands,2011,February,22831.91
+Netherlands,2011,January,25943.36
+Netherlands,2011,July,11.02
+Netherlands,2011,June,26699.69
+Netherlands,2011,March,22135.69
+Netherlands,2011,May,28942.88
+Netherlands,2011,November,25232.01
+Netherlands,2011,October,40360.95
+Netherlands,2011,September,26832.26
+Nigeria,2010,August,106.62
+Norway,2009,December,365.31
+Norway,2010,August,152.4
+Norway,2010,December,7574.24
+Norway,2010,November,4629.32
+Norway,2010,September,973.69
+Norway,2011,August,1505.81
+Norway,2011,December,2745.7000000000003
+Norway,2011,February,590.9
+Norway,2011,July,770.0699999999999
+Norway,2011,June,5170.51
+Norway,2011,March,345.01
+Norway,2011,November,5807.5
+Norway,2011,October,3316.73
+Norway,2011,September,8349.89
+Poland,2009,December,371.82
+Poland,2010,August,527.4399999999999
+Poland,2010,December,496.32
+Poland,2010,July,294.75
+Poland,2010,June,556.16
+Poland,2010,March,318.86
+Poland,2010,November,821.14
+Poland,2010,September,349.47
+Poland,2011,April,705.8399999999999
+Poland,2011,August,361.8
+Poland,2011,February,604.05
+Poland,2011,January,613.22
+Poland,2011,July,607.3
+Poland,2011,June,263.65000000000003
+Poland,2011,March,317.78
+Poland,2011,May,1402.37
+Poland,2011,November,1361.23
+Poland,2011,September,489.25
+Portugal,2009,December,2726.58
+Portugal,2010,April,85.53999999999999
+Portugal,2010,August,361.52
+Portugal,2010,December,3407.09
+Portugal,2010,February,374.83
+Portugal,2010,July,232.1
+Portugal,2010,June,3332.46
+Portugal,2010,March,2399.45
+Portugal,2010,May,589.2
+Portugal,2010,November,4520.37
+Portugal,2010,October,2538.73
+Portugal,2010,September,2862.73
+Portugal,2011,April,1687.75
+Portugal,2011,August,1221.4
+Portugal,2011,December,2416.19
+Portugal,2011,February,1017.9
+Portugal,2011,January,3426.16
+Portugal,2011,July,2175.85
+Portugal,2011,June,800.46
+Portugal,2011,March,2485.45
+Portugal,2011,May,602.83
+Portugal,2011,November,2336.9
+Portugal,2011,October,5330.13
+Portugal,2011,September,1359.3700000000001
+RSA,2010,February,915.08
+RSA,2010,October,1432.04
+RSA,2011,October,985.96
+Saudi Arabia,2011,February,145.92
+Singapore,2010,April,1066.95
+Singapore,2010,September,2621.62
+Singapore,2011,April,2118.74
+Singapore,2011,January,1960.97
+Singapore,2011,July,3867.7200000000003
+Singapore,2011,October,999.26
+Spain,2009,December,7754.18
+Spain,2010,April,721.98
+Spain,2010,August,1045.04
+Spain,2010,December,2492.55
+Spain,2010,February,406.64
+Spain,2010,January,2069.4
+Spain,2010,July,1037.31
+Spain,2010,June,2296.2
+Spain,2010,March,1416.8
+Spain,2010,May,2337.18
+Spain,2010,November,5902.21
+Spain,2010,October,13567.85
+Spain,2010,September,3266.45
+Spain,2011,April,1645.65
+Spain,2011,August,2790.91
+Spain,2011,December,285.26
+Spain,2011,February,1697.0
+Spain,2011,January,9630.54
+Spain,2011,July,7079.62
+Spain,2011,June,2667.66
+Spain,2011,March,4759.55
+Spain,2011,May,2697.6
+Spain,2011,November,7958.860000000001
+Spain,2011,October,7941.34
+Spain,2011,September,4407.99
+Sweden,2009,December,285.29999999999995
+Sweden,2010,April,15868.44
+Sweden,2010,August,2296.59
+Sweden,2010,December,3834.2999999999997
+Sweden,2010,February,8162.58
+Sweden,2010,January,1582.15
+Sweden,2010,July,2390.78
+Sweden,2010,June,874.3000000000001
+Sweden,2010,March,1357.58
+Sweden,2010,May,3556.7599999999998
+Sweden,2010,November,1533.91
+Sweden,2010,October,8715.86
+Sweden,2010,September,2819.56
+Sweden,2011,April,649.1
+Sweden,2011,August,1160.86
+Sweden,2011,December,238.0
+Sweden,2011,February,355.05
+Sweden,2011,January,3286.32
+Sweden,2011,July,6692.09
+Sweden,2011,June,656.2
+Sweden,2011,March,4680.58
+Sweden,2011,May,2641.98
+Sweden,2011,November,2322.23
+Sweden,2011,October,5671.16
+Sweden,2011,September,4517.21
+Switzerland,2009,December,469.4
+Switzerland,2010,April,1819.76
+Switzerland,2010,August,1844.95
+Switzerland,2010,December,1448.32
+Switzerland,2010,February,397.68
+Switzerland,2010,July,569.99
+Switzerland,2010,June,2362.47
+Switzerland,2010,March,831.62
+Switzerland,2010,May,9640.31
+Switzerland,2010,November,12440.73
+Switzerland,2010,October,8078.89
+Switzerland,2010,September,2274.44
+Switzerland,2011,April,1740.59
+Switzerland,2011,August,4855.69
+Switzerland,2011,February,2263.62
+Switzerland,2011,January,4026.91
+Switzerland,2011,July,3518.61
+Switzerland,2011,June,7544.15
+Switzerland,2011,March,1590.23
+Switzerland,2011,May,3450.0099999999998
+Switzerland,2011,November,7916.96
+Switzerland,2011,October,7247.48
+Switzerland,2011,September,7443.26
+Thailand,2010,July,1095.8500000000001
+Thailand,2010,June,1956.84
+USA,2010,January,2284.59
+USA,2010,July,474.55
+USA,2010,June,596.07
+USA,2010,May,416.31
+USA,2010,November,402.59999999999997
+USA,2010,October,132.8
+USA,2011,April,362.15
+USA,2011,December,885.24
+USA,2011,October,2294.85
+United Arab Emirates,2009,December,517.7
+United Arab Emirates,2010,August,1942.88
+United Arab Emirates,2010,February,2282.7
+United Arab Emirates,2010,March,1201.52
+United Arab Emirates,2010,November,1445.69
+United Arab Emirates,2010,October,509.92
+United Arab Emirates,2010,September,368.24
+United Arab Emirates,2011,February,823.84
+United Arab Emirates,2011,September,975.54
+United Kingdom,2009,December,710018.1
+United Kingdom,2010,April,542924.8
+United Kingdom,2010,August,567616.07
+United Kingdom,2010,December,1059641.65
+United Kingdom,2010,February,437739.94
+United Kingdom,2010,January,469363.59
+United Kingdom,2010,July,538032.01
+United Kingdom,2010,June,586918.29
+United Kingdom,2010,March,649600.16
+United Kingdom,2010,May,536428.62
+United Kingdom,2010,November,1225600.46
+United Kingdom,2010,October,928905.75
+United Kingdom,2010,September,712096.12
+United Kingdom,2011,April,451975.11
+United Kingdom,2011,August,570937.06
+United Kingdom,2011,December,568659.84
+United Kingdom,2011,February,410190.94
+United Kingdom,2011,January,528929.44
+United Kingdom,2011,July,566400.46
+United Kingdom,2011,June,596520.21
+United Kingdom,2011,March,563270.48
+United Kingdom,2011,May,601605.96
+United Kingdom,2011,November,1268576.92
+United Kingdom,2011,October,906903.32
+United Kingdom,2011,September,868178.64
+Unspecified,2010,April,252.51999999999998
+Unspecified,2010,January,1014.45
+Unspecified,2010,July,2379.88
+Unspecified,2010,November,540.57
+Unspecified,2010,September,1978.15
+Unspecified,2011,April,299.1
+Unspecified,2011,August,531.03
+Unspecified,2011,July,1425.41
+Unspecified,2011,June,185.78
+Unspecified,2011,May,1039.52
+Unspecified,2011,November,965.75
+Unspecified,2011,September,286.85
+West Indies,2010,August,536.41

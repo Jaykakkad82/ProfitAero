@@ -1,0 +1,63 @@
+.countries{
+    fill: none;
+    stroke: #fff;
+    stroke-linejoin: round;
+  }
+
+
+.indicator-card {
+  width: 7.2rem; 
+  /* height: 7.2rem; */
+}
+
+
+.indicator-title {
+
+  font-weight: bolder;
+  font-family: arial;
+  font-size: 12px;
+}
+
+.indicator-value {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+}
+
+.product-capitalize li {
+  text-transform: capitalize!important;
+}
+
+.card-header-title {
+  font-weight: bolder;
+}
+
+.choropleth-map-div {
+  text-align: center;
+}
+
+.barchart-col{
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 90%;
+   max-width:1200px;
+  }
+}
+
+.legend-title{
+  font-weight: bolder;
+  white-space: pre-line;
+}
+
+
+
+.x_axis_label{
+  font-size: 14px;
+  text-anchor: middle;
+}
+
+.y_axis_label{
+  font-size: 14px;
+  text-anchor: middle;
+}
